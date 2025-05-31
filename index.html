@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aboutme｜tngw</title>
+  
+  <!-- OGP（TwitterとかにURL貼った時プレビューで出るやつ）の設定 -->
+<meta property="og:title" content="【ページタイトル】">
+<meta property="og:description" content="【ページ説明文（改行不可）】">
+<meta property="og:image" content="https://【Githubアカウント名】.github.io/【リポジトリ名】/ogp.png">
+<meta property="og:url" content="https://【Githubアカウント名】.github.io/【リポジトリ名】/">
+<meta property="og:type" content="website">
+  
+  <!-- フォント読み込み -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+  /* --- 全体の基本設定 --- */
+  * {
+    box-sizing: border-box; /* 余白と枠線を含めて幅・高さを計算 */
+  }
+  body {
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif; /* フォント */
+    background: #f0f0f5; /* 全体の背景 */
+    color: #4f4f4f; /* 全体の文字色 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem; /* 上下左右の余白 */
+  }
+
+  /* --- プロフィールセクション --- */
+  .profile {
+    text-align: center; /* 中央寄せ */
+  }
+
+  /* --- アバターと切り替えQR --- */
+  .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.avatar.qr {
+  width: 130px;
+  height: 130px;
+  border-radius: 12px;
+}
+
+  /* --- タイトル部分（最上部） --- */
+  .title {
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin: 1.4rem 0 0.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.0rem;
+    margin: 0;
+  }
+
+  .desc {
+    font-size: 0.8rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  /* --- SNSアイコン（テンプレはX）リンク --- */
+.sns-link {
+  display: inline-flex;   /* アイコン中央揃え */
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  border-radius: 8px;     /* 角丸 */
+  width: 25px;
+  height: 25px;
+  margin: 0.5rem 0;
+  padding: 5px;
+}
+
+.sns-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+  /* --- 全カード共通スタイル --- */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 優しい影 */
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .card h2 {
+    font-size: 1.4rem; /* カードテキスト見出し */
+    margin: 0 0 0.2rem;
+    font-weight: bold;
+  }
+
+  .card p {
+    font-size: 0.9rem; /* カードテキスト本文 */
+    margin: 0;
+    color: #555;
+  }
+
+
+  /* --- カードの一覧 --- */
+  .card-list {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem; /* カード同士の間隔 */
+  }
+
+  /* --- リンクカードの基本スタイル --- */
+  .link-card {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* 下線を消す */
+    color: #333;
+    font-weight: 500;
+    transition: transform 0.1s ease, box-shadow 0.2s ease; /* ホバーアニメ */
+  }
+
+  .link-card:hover {
+    transform: translateY(-2px); /* ホバーで少し上に動く */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15); /* 浮いてる影をつける */
+  }
+
+  .link-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1.2rem;
+    object-fit: contain; /* アイコンが崩れないように */
+  }
+
+  /* --- フッター（著作情報） --- */
+  .footer {
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+  }
+
+  /* --- モバイル用調整 --- */
+  @media (max-width: 600px) {
+    .title {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+</head>
+
+<!-- ここからページの本文 -->
+<body>
+  <div class="profile">
+    <img src="avatar.png" alt="プロフィール画像" class="avatar" id="avatar-img">
+    <h2 class="title">谷川</h2>
+    <h3 class="subtitle">ゲーム系二次創作を描くオタク</h3>
+    <a href="https://x.com/tanigawa0815" target="_blank" class="sns-link">
+      <img src="x-icon.png" alt="" class="sns-icon">
+    </a>
+    <p class="desc">自己紹介的なページ</p>
+  </div>
+
+  <div class="card-list">
+
+<!-- ここから個別カード -->
+
+    <div class="card">
+      <h2>各種SNSアカウントについて</h2>
+      <p>いわゆる雑多垢。好きなゲームの二次創作をメインに色々を好きな時に好き放題描いています。
+        透明水彩などのアナログ画材を集めたり使ったり個人サイトをいじったりするのも好きです。<br>
+      <br>
+      配慮が下手な部類の雑食なので、
+      地雷や苦手なものが多かったりCPが絶対固定派な方のフォローは非推奨かもしれません。という理由もありフォロバは若干慎重気味、こちらからの無言フォローもお気遣いなく<br>
+
+<br>
+
+🚫画像類の転載・加工・二次利用・AI学習への利用を固く禁止します<br>
+🚫Do not reupload my art<br>
+🚫All images are not for AI training<br>
+🚫アフィリエイト/PR記事やまとめブログなどへのポストの無断引用はお控えください<br>
+<br>
+男女BLを問わず成人向けも嗜みますが、公開アカウントでそういった成分をそのまま出すことはなく、後述の外部リンク（ポイピクやや個人サイトなど）や鍵運用アカウントに退避させています。
+
+      </p>
+    </div>
+    
+
+
+<!-- サンプルカード -->
+
+    <a href="https://x.com/tanigawa0815" target="_blank" class="link-card card">
+      <img src="i-x.png" class="link-icon" alt="">
+      <div>
+        <h2>X</h2>
+        <p>なんだかんだでここにいる</p>
+      </div>
+    </a>
+
+    <a href="https://emd.lsv.jp/" target="_blank" class="link-card card">
+      <img src="home.png" class="link-icon" alt="">
+      <div>
+        <h2>emd</h2>
+        <p>個人サイト的なアレ</p>
+      </div>
+    </a>
+    <a href="hhttps://emd.lsv.jp/contact/" target="_blank" class="link-card card">
+      <img src="mail.png" class="link-icon" alt="">
+      <div>
+        <h2>メールフォーム</h2>
+        <p>ご要件はDMではなくこちらまで</p>
+      </div>
+    
+
+        <a href="https://mixi.social/@tngw" target="_blank" class="link-card card">
+      <img src="i-mixi2.png" class="link-icon" alt="">
+      <div>
+        <h2>mixi2</h2>
+        <p>最近ここにいることが多め</p>
+      </div>
+    </a>
+          <a href="https://bsky.app/profile/tngw.bsky.social" target="_blank" class="link-card card">
+      <img src="i-bs.png" class="link-icon" alt="">
+      <div>
+        <h2>Bluesky</h2>
+        <p>低浮上</p>
+      </div>
+
+                <a href="https://taittsuu.com/users/tngw" target="_blank" class="link-card card">
+      <img src="i-tai.png" class="link-icon" alt="">
+      <div>
+        <h2>タイッツー</h2>
+        <p>低浮上</p>
+      </div>
+      
+                <a href="https://note.com/scemd" target="_blank" class="link-card card">
+      <img src="i-note.png" class="link-icon" alt="">
+      <div>
+        <h2>note</h2>
+        <p>検索に引っかかてもいいものを</p>
+      </div>
+
+                      <a href="https://poipiku.com/8743344/" target="_blank" class="link-card card">
+      <img src="i-poi.png" class="link-icon" alt="">
+      <div>
+        <h2>ポイピク</h2>
+        <p>人目が憚られるもの暫定置き場</p>
+      </div>
+    </a>
+    </a>
+
+    <div class="card">
+      <h2>好きとか苦手とかなもの</h2>
+      <p> 
+▶︎DQシリーズ<br>
+3再リメイクで再燃。1〜8、11をクリア済み。各種スマホゲームはほぼ触っておらずアンテナも低め。<br>
+3の好きなキャラは盗賊くん、勇者ちゃんや僧侶ちゃん、魔法使いじじいが転職して若くなるタイプの賢者。他ナンバリングにも好きなキャラが書き切れないレベルで多数ですが、主人公の親友相棒系の男子を好きになる傾向。
+推しCPは盗勇、クリアリ、ヘンマリ、ミレアモアモミレ等。自分で生産するしないを問わず好きなCPも多数（CP名は配慮で極力明記しております）。
+<br>
+▶︎俺屍<br>
+無印とRをクリア済み。ハードの問題で未プレイなものの興味があるのは2。<br>
+かなり昔の無印初見プレイ一族で長年二次創作を続けています。顔番号で推すなら4番16番22番の男子が特に好き。<br>
+人気の某実況一族さんは通して一周観た程度で、自ら進んで語ったり二次創作を描いたりはあまりないかと思います。<br>
+<br>
+▶︎その他ジャンル<br>
+・90年代〜00年代あたりのスクエニ作品<br>
+・どこいつポケピ箱推し<br>
+・最近やったpkmnは🛡️と🍊<br>
+・その他色々レトロゲーム<br>
+・好きで語れる作品が他にもいっぱい<br>
+
+▶︎こんなキャラや組み合わせが好き<br>
+・怒ると怖い普段は温厚なキャラ<br>
+・重い過去を持ちつつ表ヅラが軽い男<br>
+・いかつい男と美女の組み合わせ<br>
+・身分差CP<br>
+・積極的な年下とそれをいなす年上のCP<br>
+・女性上位気味な男女CP<br>
+<br>
+▶︎これは無理<br>
+原作ゲーム未プレイ状態で作られた二次創作
+
+      </p>
+    </div>
+<!-- 個別カードここまで -->
+
+  </div>
+
+<!-- フッター -->
+  <footer class="footer">
+    <small></small>
+  </footer>
+
+<!-- アバター切り替えスクリプト 切り替え用QRコード画像はここで指定しています-->
+<script>
+  const avatarImg = document.getElementById("avatar-img");
+  let isAvatar = true;
+
+  avatarImg.addEventListener("click", () => {
+    if (isAvatar) {
+      avatarImg.src = "avatar-qr.png";
+      avatarImg.classList.add("qr");
+    } else {
+      avatarImg.src = "avatar.png";
+      avatarImg.classList.remove("qr");
+    }
+    isAvatar = !isAvatar;
+  });
+</script>
+
+</body>
+</html>
